@@ -39,6 +39,7 @@ const EmployeeScreen = () => {
           </View>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <Image source={require('../assets/homelogo.png')} />
+          <View style={{position:'absolute', right: wp(35), top: hp(-2), backgroundColor:'#5E5E5EB5', borderRadius: wp(5), paddingHorizontal: wp(2.5), paddingVertical: wp(1.5), width: wp(8), height: hp(4), }}><Text style={{color:'green', fontWeight:'bold', fontSize: wp(4), }}>4</Text></View>
 
 
           </View>
@@ -54,6 +55,7 @@ const EmployeeScreen = () => {
             />
             <TouchableOpacity onPress= {handleSearch} style= {{position: 'absolute', top: hp(4),  left: wp(75) }}>
             <Image source={require('../assets/search.png')}  style= {{ width: wp(11), height: hp(5)}} />
+
             </TouchableOpacity>
 
             <FlatList

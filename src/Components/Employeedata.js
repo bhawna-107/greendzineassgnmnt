@@ -9,10 +9,10 @@ const EmployeeScreen = () => {
     const [filteredEmployees, setFilteredEmployees] = useState([]);
 
     const employeeData = [
-        { EMPID: 1, Name: 'John Doe', DOB: '16-11-2000', Role: 'HR' },
-        { EMPID: 2, Name: 'Jane Smith', DOB: '17-10-2001', Role: 'IT' },
-        { EMPID: 3, Name: 'Alice Johnson',DOB: '11-12-2000', Role: 'Finance' },
-        { EMPID: 4, Name: 'Alice Johnson', DOB: '18-1-1999', Role: 'Finance' },
+        { EMPID: 1, Name: 'John Doe', DOB: '16-11-2000', Role: 'Software Engineer' },
+        { EMPID: 2, Name: 'Jane Smith', DOB: '17-10-2001', Role: 'HR' },
+        { EMPID: 3, Name: 'Alice Johnson',DOB: '11-12-2000', Role: 'Analyst' },
+        { EMPID: 4, Name: 'Miley Cyrus', DOB: '18-1-1999', Role: 'Finance' },
         // Add more employee data
     ];
     // Initially show all employees
@@ -61,14 +61,37 @@ const EmployeeScreen = () => {
             <FlatList
                 data={filteredEmployees}
                 keyExtractor={item => item.EMPID.toString()}
-                renderItem={({ item }) => (
+                renderItem={({ item , index}) => (
                     <View style={styles.cardContainer}>
                       <View style={styles.card}>
-                      <Text style={{color: 'white',}}><Text style = {{width: wp(5), marginHorizontal: wp(3),}}>
-                      EMPID:</Text> {item.EMPID}</Text>
-                        <Text style={{color: 'white', paddingTop: hp(3),}}>Name: {item.Name}</Text>
-                        <Text style={{color: 'white', paddingTop: hp(3),color:'orange'}}>DOB: {item.DOB}</Text>
-                        <Text style={{color: 'white', paddingTop: hp(3), color:'green'}}>Role: {item.Role}</Text>
+                      <View style={{position:'absolute', right: wp(-2), top: hp(-1), backgroundColor:'#5E5E5EB5', borderRadius: wp(5), paddingHorizontal: wp(2.5), paddingVertical: wp(1.5), width: wp(8), height: hp(4), borderColor: '#000000', }}><Text style={{color:'white', fontWeight:'bold', fontSize: wp(4), }}>{index+1}</Text></View>
+
+                      <View style={{color: 'white', flexDirection: 'row', width: wp(80)}}>
+                        <View style={{flexDirection: 'row'}}>
+                        <Text style = {{ width: wp(25),color: 'white',}}> EMPID     :</Text> 
+                        <Text style={{color: 'white',}}>{item.EMPID}</Text>
+                          </View>
+                      </View>
+                      <View style={{color: 'white', flexDirection: 'row', width: wp(80)}}>
+                      <View style={{paddingTop: hp(3),flexDirection: 'row'}}>
+                        <Text style = {{width: wp(25),color: 'white',}}> Name    :</Text> 
+                        <Text style={{color: 'white',}}>{item.Name}</Text>
+                        </View>
+                      </View>
+                      <View style={{color: 'white', flexDirection: 'row', width: wp(80)}}>
+                      <View style={{paddingTop: hp(3),flexDirection: 'row'}}>
+
+                        <Text style = {{width: wp(25),color: 'white',}}> DOB    :</Text> 
+                        <Text style={{color: 'orange',}}>{item.DOB}</Text>
+                        </View>
+                      </View>
+                      <View style={{color: 'white', flexDirection: 'row', width: wp(80)}}>
+                      <View style={{paddingTop: hp(3),flexDirection: 'row'}}>
+
+                        <Text style = {{width: wp(25),color: 'white',}}> Role    :</Text> 
+                        <Text style={{color: 'green',}}>{item.Role}</Text>
+                        </View>
+                      </View>
                         </View>
                     </View>
                 )}
@@ -103,7 +126,7 @@ const styles = StyleSheet.create({
         marginVertical: hp(2),
         padding: hp(2),
         borderWidth: 1,
-        borderRadius: hp(10),
+        borderRadius: wp(15),
         color:'white',
         width: wp(90),
         backgroundColor:'#5E5E5E82',

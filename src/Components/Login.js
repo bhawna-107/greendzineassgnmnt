@@ -16,12 +16,10 @@ const Login = ({navigation}) => {
     const handleLogin = () => {
         if(email === "anyoneuser111@gmail.com" && password === "anyoneuser"){
             Alert.alert(`Thank You ${email}`);
-            navigation.navigate('Home');
+            navigation.navigate('Dashboard');
         }else{
             Alert.alert(`email and password not correct`);
         }
-
-
     }
   return (
     <Background>
